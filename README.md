@@ -1,0 +1,51 @@
+Roles de usuario
+Cliente: 0
+Vendedor: 1
+Bodeguero: 2
+Contador: 3
+Administrador: 4
+
+#Clasificación de instrumentos
+
+●	Instrumentos de Cuerdas (IC)
+    ▪	Guitarras (IC-G)
+        ⮚	Guitarras Cuerpo Solido (IC-G-GCS)
+        ⮚	Guitarras Acústicas (IC-G-GA)
+        ⮚	Guitarras Eléctricas (IC-G-GE)
+    ▪	Bajos (IC-B)
+        ⮚	Bajos Cuatro Cuerdas (IC-B-BCUC)
+        ⮚	Bajos Cinco Cuerdas (IC-B-BCIC)
+        ⮚	Bajos Activos (IC-B-BA)
+        ⮚	Bajos Pasivos (IC-B-BP)
+    ▪	Pianos (IC-P)
+        ⮚	Piano de media cola (IC-P-PMC)
+        ⮚	Piano de cola entera (IC-P-PCE)
+        ⮚	Pianolas (IC-P-P)
+●	Percusión (P)
+    ▪	Baterías Acústicas (P-BA)
+        ⮚	Tama (P-BA-T)
+        ⮚	Pearl (P-BA-P)
+        ⮚	Sonor (P-BA-S)
+        ⮚	Mapex (P-BA-M)
+    ▪	Batería Electrónica (P-BE)
+        ⮚	Roland (P-BE-R)
+        ⮚	Alesis (P-BE-A)
+●	Amplificadores (A)
+    ▪	Cabezales (A-CAB)
+        ⮚	ENGL (A-CAB-EN)
+        ⮚	Marshall (A-CAB-M)
+        ⮚	Pavey (A-CAB-P)
+        ⮚	EVH (A-CAB-EV)
+    ▪	Cajas (A-CAJ)
+        ⮚	ENGL (A-CAJ-EN)
+        ⮚	Marshall (A-CAJ-M)
+        ⮚	Pavey (A-CAJ-P)
+        ⮚	EVH (A-CAJ-EV)
+●	Accesorios varios (AC)
+    ▪	Audífonos (AC-A)
+    ▪	Monitores (AC-MO)
+    ▪	Parlantes (AC-P)
+    ▪	Cables (AC-C)
+    ▪	Micrófonos (AC-M)
+    ▪	Interfaces (AC-I)
+    ▪	Mixers (AC-MI)

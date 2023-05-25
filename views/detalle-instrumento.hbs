@@ -1,0 +1,34 @@
+{{> head}}
+{{> header}}
+<!--Body-->
+<div class="container px-5 my-5">
+
+    <div class="container-bg">
+        <div class="row pt-4">
+            <div class="col-8 d-flex justify-content-center">
+                <img style="max-height: 600px; max-width: 600px;" class="rounded-2"
+                    src="/img/guitarra-electrico-ibanez-negra.jpg" />
+            </div>
+            <div class="col-4 row">
+                <div class="col-12">
+                    <p class="m-0">{{producto.marca}}</p>
+                    <h2 class="m-0">{{producto.nombreProducto}}</h2>
+                    <p class="m-0">{{producto.categoria}}</p>
+                </div>
+                <div class="col-12">
+                    <h2 class="m-0">Precio: ${{producto.precio}}</h2>
+                    <button class="btn btn-danger mt-4">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-5">
+            <div class="d-flex row container-bg  mx-0 p-0">
+                <h2>Descripción</h2>
+                <p>{{producto.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{> footer}}

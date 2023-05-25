@@ -1,0 +1,28 @@
+{{> head}}
+{{> header}}
+<!--Body-->
+<div class="container px-5 my-5">
+    <div class="d-flex my-4">
+        <h1>Instrumentos</h1>
+    </div>
+    <div class="row container p-0 m-0">
+        {{#each productos}}
+        <div class="col-4 d-flex justify-content-center mb-4">
+            <div class="card p-0" style="width:350px;">
+                <img class="card-img-top" src="/img/guitarra-electrico-ibanez-negra.jpg" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">{{nombreProducto}}</h4>
+                    <p class="card-text">${{precio}}</p>
+                    <button href="#" class="btn btn-link link-basic">
+                        <div class="d-flex align-items-center">
+                            <img height="auto" width="10%" src="/img/comprar.png" />
+                            <p class="ms-2 mb-1">Agregar al carrito</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{> footer}}

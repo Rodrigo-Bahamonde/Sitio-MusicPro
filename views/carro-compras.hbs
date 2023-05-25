@@ -1,0 +1,54 @@
+{{> head}}
+{{> header}}
+<!--Body-->
+<div class="container px-5 my-5">
+    <div class="d-flex my-4">
+        <h1>Confirmación de compra</h1>
+    </div>
+
+    <div class="container-bg py-2 rounded-5">
+        {{#each data.productos}}
+        <div class="d-flex py-2 mx-4 align-items-center justify-content-between border-bottom">
+            <div class="d-flex align-items-center">
+                <img style="max-height: 80px; max-width: 80px;" class="rounded-2 ms-4"
+                    src="img/guitarra-electrico-ibanez-negra.jpg" />
+                <div class="ms-4">
+                    <p class="m-0">{{marca}}</p>
+                    <h3 class="m-0">{{nombreProducto}}</h3>
+                    <p class="m-0">{{categoria}}</p>
+                </div>
+            </div>
+            <div class="col-6 d-flex align-items-center">
+                <div class="col-6 row">
+                    <div class="col-2 p-0 d-flex justify-content-center align-items-center">
+                        <img height="20px" width="20px" src="/img/restar.png" />
+                    </div>
+                    <div class="col-2 p-0 d-flex justify-content-center align-items-center">
+                        <p class="m-0">{{cantidad}}</p>
+                    </div>
+                    <div class="col-2 p-0 d-flex justify-content-center align-items-center">
+                        <img height="20px" width="20px" src="/img/sumar.png" />
+                    </div>
+                </div>
+                <div class="col-4 p-0 d-flex justify-content-center align-items-center">
+                    <h3>Precio: ${{precio}}</h3>
+                </div>
+                <div class="col-2 p-0 d-flex justify-content-center align-items-center">
+                    <img height="40px" width="40px" src="/img/eliminar.png" />
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+        <div class="d-flex mx-4 py-4 justify-content-between">
+            <div class="col-6 d-flex justify-content-center">
+                <button onclick="finalizarCompra()" class="btn btn-secondary btn-lg px-4">Finalizar compra</button>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <h2>Total: ${{data.total}}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{> footer}}

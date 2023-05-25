@@ -1,0 +1,122 @@
+<div class="offcanvas offcanvas-start bg-dark" id="demo">
+    <div class="offcanvas-header">
+        <h1 class="offcanvas-title text-light">Categorías</h1>
+        <button type="button" class="btn m-0 p-0 rounded-circle bg-light" data-bs-dismiss="offcanvas">
+            <img class="p-2" height="30px" width="30px" src="/img/cerrar.png" />
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="accordion">
+            <div class="rounded-top">
+                <div class="border-bottom">
+                    <a class="link-basic d-flex ps-3 py-2 text-light" data-bs-toggle="collapse" href="#collapseOne">
+                        <p class="text-light m-0 p-0">
+                            Instrumentos de cuerda
+                        </p>
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse bg-light" data-bs-parent="#accordion">
+                    <div class="card-body py-2">
+                        <div class="row gap-2 m-0">
+                            <a class="link-basic link-item ps-5" href="#">Guitarras</a>
+                            <a class="link-basic link-item ps-5" href="#">Bajos</a>
+                            <a class="link-basic link-item ps-5" href="#">Pianos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="border-bottom">
+                    <a class="link-basic d-flex ps-3 py-2" data-bs-toggle="collapse" href="#collapseTwo">
+                        <p class="text-light m-0 p-0">
+                            Accesorios
+                        </p>
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse bg-light" data-bs-parent="#accordion">
+                    <div class="card-body py-2">
+                        <div class="row gap-2 m-0">
+                            <a class="link-basic link-item ps-5" href="#">Audífonos</a>
+                            <a class="link-basic link-item ps-5" href="#">Monitores</a>
+                            <a class="link-basic link-item ps-5" href="#">Parlantes</a>
+                            <a class="link-basic link-item ps-5" href="#">Cables</a>
+                            <a class="link-basic link-item ps-5" href="#">Micrófonos</a>
+                            <a class="link-basic link-item ps-5" href="#">Interfaces</a>
+                            <a class="link-basic link-item ps-5" href="#">Mixers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="border-bottom">
+                    <a class="link-basic d-flex ps-3 py-2" data-bs-toggle="collapse" href="#collapseThree">
+                        <p class="text-light m-0 p-0">
+                            Amplificadores
+                        </p>
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse bg-light" data-bs-parent="#accordion">
+                    <div class="card-body py-2">
+                        <div class="row gap-2 m-0">
+                            <a class="link-basic link-item ps-5" href="#">Cabezales</a>
+                            <a class="link-basic link-item ps-5" href="#">Cajas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <a class="link-basic d-flex ps-3 py-2" data-bs-toggle="collapse" href="#collapseFour">
+                        <p class="text-light m-0 p-0">
+                            Percusión
+                        </p>
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse bg-light" data-bs-parent="#accordion">
+                    <div class="card-body py-2">
+                        <div class="row gap-2 m-0">
+                            <a class="link-basic link-item ps-5" href="#">Baterías Acústicas</a>
+                            <a class="link-basic link-item ps-5" href="#">Batería Electrónica</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-bg py-2">
+    <div class="container">
+        <!--Nav-->
+        <div class="d-flex justify-content-between row">
+            <div class="col-8 flex-fill row">
+                <div class="col-2 my-2">
+                    <a class="" href="#">
+                        <img height="100px" width="100px" style="border-radius: 100px;" src="/img/logo.png" />
+                    </a>
+                </div>
+                <div class="col-10 d-flex align-items-center">
+                    <button id="btn-categorias-menu" type="button" class="dropdown-toggle link-basic btn btn-link"
+                        data-bs-toggle="offcanvas" data-bs-target="#demo">
+                        <div class="d-flex align-items-center">
+                            <img height="auto" width="35px" src="/img/menu.png" />
+                            <h3 class="ms-3 mb-1">Categorías</h3>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="me-5">
+                    <a class="" href="#">
+                        <img height="auto" width="50px" src="/img/usuario.png" />
+                    </a>
+                </div>
+                <div>
+                    <a class="" href="#">
+                        <img height="auto" width="50px" src="/img/carrito-de-compras.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
