@@ -56,6 +56,10 @@ import Producto from '../models/producto.js'
 // ]
 
 
+const getURL = () =>{
+    return process.env.URL;
+}
+
 //Obtener productos
 const productosGet = async (req = request, res = response) => {
 
@@ -87,13 +91,14 @@ const productoGet = async (req = request, res = response) => {
 //Obtener producto por categoria
 const productosCategoriaGet = async (req = request, res = response) => {
 
-    const { categoria } = req.params
+    const { Tipo } = req.params
     //Obtener producto de base de datos
-    const productos = await Producto.find({ categoria })
+    const productos = await Producto.find({ Tipo })
 
     //Mostrar estado del producto segun stock
-
-    res.render('instrumentos', { productos });
+    // console.log('URL');
+    // console.log(URL);
+    res.render('instrumentos', { productos, URL: getURL()  });
 };
 
 //Ingresar un nuevo producto
@@ -101,7 +106,6 @@ const productosPost = async (req = request, res = response) => {
 
     const body = req.body;
     const producto = new Producto(body);
-
     //Validar que al agregar un producto solo sea administrador o vendedor
 
 

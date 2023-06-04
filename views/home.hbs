@@ -48,7 +48,9 @@
                 <div class="card-body">
                     <h4 class="card-title">{{nombreProducto}}</h4>
                     <p class="card-text">${{precio}}</p>
-                    <button href="#" class="btn btn-link link-basic">
+                    <button
+                        onclick="guardarProductoCarrito(`{{_id}}`,`{{categoria}}`,`{{marca}}`,`{{precio}}`,`{{nombreProducto}}`,`{{imagen}}`)"
+                        class="btn btn-link link-basic">
                         <div class="d-flex align-items-center">
                             <img height="auto" width="10%" src="./img/comprar.png" />
                             <p class="ms-2 mb-1">Agregar al carrito</p>

@@ -7,11 +7,12 @@ import { loginPost, registroPost } from '../controllers/login.js';
 import { informesVentasGet, ventasGet, ventasPost } from '../controllers/ventas.js';
 import { check } from 'express-validator'
 import validarCampos from '../middlewares/validar-campos.js';
-import { existenProductosPorCategorias,existeProductoPorId } from '../helpers/db-validators.js';
-import { boletaGet, compraGet, formularioTransbankGet, homeGet } from '../controllers/home.js';
+import { existenProductosPorCategoria, existeProductoPorId } from '../helpers/db-validators.js';
+import { boletaGet, compraGet, errorGet, formularioTransbankGet, homeGet } from '../controllers/home.js';
 
 const router = Router();
 
+router.get('/error', errorGet);
 router.get('/', homeGet);
 
 //Mantenedor de compra
@@ -28,7 +29,7 @@ router.get('/pedidos', pedidosGet);
 //Mantenedores productos
 // router.get('/productos', productosGet);
 router.get('/productos/:categoria', [
-    check('categoria').custom(existenProductosPorCategorias),
+    check('categoria').custom(existenProductosPorCategoria),
     validarCampos,
 ], productosCategoriaGet);
 router.get('/producto/:id', [

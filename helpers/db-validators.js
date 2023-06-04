@@ -9,8 +9,11 @@ const existeProductoPorId = async (id) => {
     }
 }
 
-const existenProductosPorCategorias = async (categoria) => {
-    const existeProducto = await Producto.find({ categoria });
+const existenProductosPorCategoria = async (categoria) => {
+
+    const regexCategoria = new RegExp(categoria, 'i');
+
+    const existeProducto = await Producto.find({ categoria: regexCategoria });
 
     if (existeProducto.length === 0) {
         throw new Error(`No existe esta categoria`)
@@ -18,4 +21,4 @@ const existenProductosPorCategorias = async (categoria) => {
 }
 
 
-export { existeProductoPorId, existenProductosPorCategorias };
+export { existeProductoPorId, existenProductosPorCategoria };

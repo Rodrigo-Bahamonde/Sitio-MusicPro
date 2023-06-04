@@ -1,9 +1,10 @@
 
 /*Header*/
 body {
-    margin: 0px;
-    height: 0px;
-    background-color: #E9E9E9;
+    margin: 0px !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
@@ -20,21 +21,31 @@ button::after {
     text-decoration: none !important;
 }
 
-li a:active{
+.link-basic:focus {
+    box-shadow: none!important;
+}
+
+li a:active {
     background-color: black !important;
 }
 
-.link-item:hover{
+.link-item:hover {
     background-color: #00000010 !important;
 }
 
-#btn-categorias-menu:focus{
+#btn-categorias-menu:focus {
     box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
 }
 
-.container-bg{
-    background-color: #F3F3F3;
+.container-bg {
+    background-color: #F3F3F3 !important;
 }
 
-/* Footer */
+.content {
+    min-height: calc(100% - 224px) !important; /* Resta la altura del footer */
+  }
 
+/* Footer */
+.footer-position {
+    margin-top: auto;
+  }

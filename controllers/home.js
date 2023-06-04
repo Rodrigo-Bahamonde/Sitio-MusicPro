@@ -70,5 +70,18 @@ const formularioTransbankGet = async (req = request, res = response) => {
     res.render('formulario-transbank', { url, token });
 }
 
+const errorGet = async (req = request, res = response) => {
+    if (req.cookies && req.cookies.errors) {
+        const errors = JSON.parse(req.cookies.errors);
+        console.log('errors');
+        console.log(errors);
+        res.render('error', { errors });
+    } else {
+        const errors = [];
+        console.log('errors');
+        console.log(errors);
+        res.render('error', { errors: [] });
+    }
+}
 
-export { homeGet, compraGet, boletaGet, formularioTransbankGet }
+export { homeGet, compraGet, boletaGet, formularioTransbankGet, errorGet }
