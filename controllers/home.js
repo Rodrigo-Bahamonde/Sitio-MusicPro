@@ -1,6 +1,7 @@
 import { response, request } from 'express'
 import Producto from '../models/producto.js'
 import { productosGet } from './productos.js';
+import numeral from 'numeral';
 
 const data = {
     total: 999999,
@@ -33,6 +34,15 @@ const dataBoleta = {
 
 }
 
+const getURL = () => {
+    return process.env.URL;
+}
+
+const formatNumber = (number) => {
+    var formattedNumber = numeral(number).format('0,0');
+    return formattedNumber;
+}
+
 //mostrar home
 const homeGet = async (req = request, res = response) => {
 
@@ -40,8 +50,18 @@ const homeGet = async (req = request, res = response) => {
     const productos = await Producto.find()
         .skip(Number(desde))
         .limit(Number(limite))
+    let listaProductos = productos;
 
-    res.render('home', { productos });
+    productos.forEach((item, index) => {
+        if (item.imagen === null || item.imagen === "") {
+            listaProductos[index].imagen = '/img/no-hay-imagen.png';
+        } else {
+            listaProductos[index].imagen = '/img/guitarra-electrico-ibanez-negra.jpg';
+        }
+        listaProductos[index].precio = formatNumber(item.precio);
+    });
+
+    res.render('home', { productos: listaProductos, URL: getURL() });
 }
 
 const compraGet = async (req = request, res = response) => {
@@ -49,7 +69,7 @@ const compraGet = async (req = request, res = response) => {
     // const { limite = 9, desde = 0 } = req.query;
     // const productos = await Producto.find()
 
-    res.render('carro-compras', { data });
+    res.render('carro-compras', { URL: getURL() });
 }
 
 const boletaGet = async (req = request, res = response) => {
@@ -57,7 +77,7 @@ const boletaGet = async (req = request, res = response) => {
     // const { limite = 9, desde = 0 } = req.query;
     // const productos = await Producto.find()
 
-    res.render('boleta');
+    res.render('boleta', { URL: getURL() });
 }
 
 const formularioTransbankGet = async (req = request, res = response) => {

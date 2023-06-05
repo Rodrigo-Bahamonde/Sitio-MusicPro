@@ -14,17 +14,17 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="d-flex justify-content-center bg-dark" style="height: 729px;">
-                <img src="img/amplificadores-portada.jpg" class="d-block" alt="...">
+                <img src="/img/amplificadores-portada.jpg" class="d-block" alt="...">
             </div>
         </div>
         <div class="carousel-item">
             <div class="d-flex justify-content-center bg-dark" style="height: 729px;">
-                <img src="img/baterias-portada.jpg" class="d-block" alt="...">
+                <img src="/img/baterias-portada.jpg" class="d-block" alt="...">
             </div>
         </div>
         <div class="carousel-item">
             <div class="d-flex justify-content-center bg-dark" style="height: 729px;">
-                <img src="img/guitarras-ibanez.jpg" class="d-block" alt="...">
+                <img src="/img/guitarras-ibanez.jpg" class="d-block" alt="...">
             </div>
         </div>
     </div>
@@ -40,19 +40,27 @@
     </button>
 </div>
 <div class="container px-5 mb-5">
-    <div class="row justify-content-between container p-0">
+    <div class="row container p-0">
         {{#each productos}}
         <div class="col-4 d-flex justify-content-center mb-4">
             <div class="card p-0" style="width:350px;">
-                <img class="card-img-top" src="img/guitarra-electrico-ibanez-negra.jpg" alt="Card image">
+                <a class="d-flex" href="{{URL}}/producto/{{_id}}">
+                    <div class="card-header d-flex align-items-center justify-content-center p-0" style="height:460px">
+                        <img class="d-block h-auto w-100" src="{{imagen}}" alt="Card image">
+                    </div>
+                </a>
                 <div class="card-body">
-                    <h4 class="card-title">{{nombreProducto}}</h4>
-                    <p class="card-text">${{precio}}</p>
+                    <a class="link-basic link-item" href="{{URL}}/producto/{{_id}}">
+                        <div>
+                            <h4 class="card-title">{{nombreProducto}}</h4>
+                            <p class="card-text">${{precio}}</p>
+                        </div>
+                    </a>
                     <button
                         onclick="guardarProductoCarrito(`{{_id}}`,`{{categoria}}`,`{{marca}}`,`{{precio}}`,`{{nombreProducto}}`,`{{imagen}}`)"
                         class="btn btn-link link-basic">
                         <div class="d-flex align-items-center">
-                            <img height="auto" width="10%" src="./img/comprar.png" />
+                            <img height="auto" width="10%" src="/img/comprar.png" />
                             <p class="ms-2 mb-1">Agregar al carrito</p>
                         </div>
                     </button>

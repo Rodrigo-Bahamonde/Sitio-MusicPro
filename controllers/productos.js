@@ -1,6 +1,6 @@
 import { response, request } from 'express'
 import Producto from '../models/producto.js'
-
+import numeral from 'numeral';
 
 // const data = [
 //     {
@@ -56,8 +56,13 @@ import Producto from '../models/producto.js'
 // ]
 
 
-const getURL = () =>{
+const getURL = () => {
     return process.env.URL;
+}
+
+const formatNumber = (number) => {
+    var formattedNumber = numeral(number).format('0,0');
+    return formattedNumber;
 }
 
 //Obtener productos
@@ -84,8 +89,13 @@ const productoGet = async (req = request, res = response) => {
 
     //Obtener producto de base de datos
     const producto = await Producto.findById(idProducto)
+    let newProducto = producto;
 
-    res.render('detalle-instrumento', { producto });
+    if (producto.imagen === null || producto.imagen === "") {
+        newProducto.imagen = '/img/no-hay-imagen.png';
+    }
+
+    res.render('detalle-instrumento', { producto: newProducto, URL: getURL() });
 };
 
 //Obtener producto por categoria
@@ -95,10 +105,19 @@ const productosCategoriaGet = async (req = request, res = response) => {
     //Obtener producto de base de datos
     const productos = await Producto.find({ Tipo })
 
-    //Mostrar estado del producto segun stock
-    // console.log('URL');
-    // console.log(URL);
-    res.render('instrumentos', { productos, URL: getURL()  });
+    let listaProductos = productos;
+
+    productos.forEach((item, index) => {
+        if (item.imagen === null || item.imagen === "") {
+            listaProductos[index].imagen = '/img/no-hay-imagen.png';
+        } else {
+            listaProductos[index].imagen = '/img/guitarra-electrico-ibanez-negra.jpg';
+        }
+        listaProductos[index].precio = formatNumber(item.precio);
+        console.log(listaProductos);
+    });
+
+    res.render('instrumentos', { productos: listaProductos, URL: getURL() });
 };
 
 //Ingresar un nuevo producto

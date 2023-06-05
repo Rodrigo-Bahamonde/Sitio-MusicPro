@@ -5,9 +5,9 @@
 
     <div class="container-bg">
         <div class="row pt-4">
-            <div class="col-8 d-flex justify-content-center">
+            <div class="col-8 d-flex justify-content-center align-items-center" style="height:600px">
                 <img style="max-height: 600px; max-width: 600px;" class="rounded-2"
-                    src="/img/guitarra-electrico-ibanez-negra.jpg" />
+                    src="{{producto.imagen}}" />
             </div>
             <div class="col-4 row">
                 <div class="col-12">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-12">
                     <h2 class="m-0">Precio: ${{producto.precio}}</h2>
-                    <button class="btn btn-danger mt-4">Añadir al carrito</button>
+                    <button onclick="guardarProductoCarrito(`{{producto._id}}`,`{{producto.categoria}}`,`{{producto.marca}}`,`{{producto.precio}}`,`{{producto.nombreProducto}}`,`{{producto.imagen}}`)" class="btn btn-danger mt-4">Añadir al carrito</button>
                 </div>
             </div>
         </div>
