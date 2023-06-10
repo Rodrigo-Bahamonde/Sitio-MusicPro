@@ -3,7 +3,7 @@ import { Router } from 'express'
 import { usuariosGet, usuariosPost, usuariosPut, usuariosDelete } from '../controllers/usuarios.js';
 import { productosGet, productosPost, productosPut, productosDelete, productoGet, productosCategoriaGet } from '../controllers/productos.js';
 import { pedidosGet, pedidosPost, pedidosPut, pedidosDelete } from '../controllers/pedidos.js';
-import { loginPost, registroPost } from '../controllers/login.js';
+import { loginGet, loginPost, registroPost } from '../controllers/login.js';
 import { informesVentasGet, ventasGet, ventasPost } from '../controllers/ventas.js';
 import { check } from 'express-validator'
 import validarCampos from '../middlewares/validar-campos.js';
@@ -70,7 +70,8 @@ router.delete('/productos/:id', [
 // router.delete('/usuarios', usuariosDelete);
 
 // //Login
-// router.post('/login', loginPost);
+router.get('/login', loginGet);
+router.post('/login', loginPost);
 // router.post('/registro', registroPost);
 
 // //Ventas

@@ -91,10 +91,11 @@ const productoGet = async (req = request, res = response) => {
     const producto = await Producto.findById(idProducto)
     let newProducto = producto;
 
-    if (producto.imagen === null || producto.imagen === "") {
+    if (producto.imagen === null || producto.imagen === "" || producto.imagen === "imagen2") {
         newProducto.imagen = '/img/no-hay-imagen.png';
     }
-
+    console.log('newProducto');
+    console.log(newProducto);
     res.render('detalle-instrumento', { producto: newProducto, URL: getURL() });
 };
 

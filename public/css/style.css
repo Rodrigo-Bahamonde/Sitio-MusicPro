@@ -1,4 +1,3 @@
-
 /*Header*/
 body {
     margin: 0px !important;
@@ -22,7 +21,7 @@ button::after {
 }
 
 .link-basic:focus {
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 li a:active {
@@ -42,10 +41,25 @@ li a:active {
 }
 
 .content {
-    min-height: calc(100% - 224px) !important; /* Resta la altura del footer */
-  }
+    min-height: calc(100% - 224px) !important;
+    /* Resta la altura del footer */
+}
 
 /* Footer */
 .footer-position {
     margin-top: auto;
-  }
+}
+
+
+/* Buttons */
+.btn-submit {
+    background-color: #33C3F0 !important;
+    color: #FFF!important;
+}
+.btn-submit:active {
+    background-color: #4190a9 !important;
+}
+
+.btn-submit:focus {
+    box-shadow: none!important;
+}

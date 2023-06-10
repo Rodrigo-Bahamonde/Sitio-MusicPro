@@ -3,6 +3,13 @@ import { response, request } from 'express'
 //mongodb+srv://user_node2:MYhqi3fEnqp8jPzU@micluster1.jxztl8z.mongodb.net/nodeDB
 
 //Iniciar sesion
+const loginGet = (req, res = response) => {
+
+    const { email, contraseña } = req.body;
+    res.render('login')
+};
+
+//Iniciar sesion
 const loginPost = (req, res = response) => {
 
     const { email, contraseña } = req.body;
@@ -28,5 +35,6 @@ const registroPost = (req = request, res = response) => {
 
 export {
     loginPost,
+    loginGet,
     registroPost,
 }
