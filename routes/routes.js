@@ -8,7 +8,7 @@ import { informesVentasGet, ventasGet, ventasPost } from '../controllers/ventas.
 import { check } from 'express-validator'
 import validarCampos from '../middlewares/validar-campos.js';
 import { existenProductosPorCategoria, existeProductoPorId } from '../helpers/db-validators.js';
-import { boletaGet, compraGet, errorGet, formularioTransbankGet, homeGet } from '../controllers/home.js';
+import { boletaGet, compraGet, errorGet, failureGet, formularioTransbankGet, homeGet, pendingGet } from '../controllers/home.js';
 
 const router = Router();
 
@@ -17,7 +17,9 @@ router.get('/', homeGet);
 
 //Mantenedor de compra
 router.get('/carro-compras', compraGet);
-router.get('/boleta', boletaGet);
+router.get('/boleta', boletaGet);//Success
+router.get('/error-compra', failureGet);//Failure
+router.get('/compra-pendiente', pendingGet);//Pending
 router.get('/formulario-transbank', formularioTransbankGet);
 
 // //Mantenedores pedidos

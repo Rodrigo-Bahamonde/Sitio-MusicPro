@@ -2,37 +2,9 @@ import { response, request } from 'express'
 import Producto from '../models/producto.js'
 import { productosGet } from './productos.js';
 import numeral from 'numeral';
-
-const data = {
-    total: 999999,
-    productos: [
-        {
-            marca: 'marca',
-            nombreProducto: 'Nombre producto',
-            categoria: 'categoria',
-            precio: 999999,
-            cantidad: 1
-        },
-        {
-            marca: 'marca',
-            nombreProducto: 'Nombre producto',
-            categoria: 'categoria',
-            precio: 999999,
-            cantidad: 2
-        },
-        {
-            marca: 'marca',
-            nombreProducto: 'Nombre producto',
-            categoria: 'categoria',
-            precio: 999999,
-            cantidad: 3
-        }
-    ]
-}
-
-const dataBoleta = {
-
-}
+import moment from 'moment';
+import fetch from "node-fetch";
+import Pedido from '../models/pedido.js';
 
 const getURL = () => {
     return process.env.URL;
@@ -72,12 +44,53 @@ const compraGet = async (req = request, res = response) => {
     res.render('carro-compras', { URL: getURL() });
 }
 
+//Success
 const boletaGet = async (req = request, res = response) => {
+
+    const fecha = moment().utc(true).format('DD-MM-YYYY HH:mm');
+    const response = req.query
+
+    const infoPedido = await Pedido.findOne({ pedidoId: response.preference_id })
+    console.log('infoPedido');
+    console.log(infoPedido);
+
+    let data = {
+        ordenCompra: infoPedido.pedidoId,
+        metodoPago: response.payment_type,
+        fecha: infoPedido.fecha,
+        total: infoPedido.total,
+        rut: infoPedido.clienteRut,
+        nombre: infoPedido.clienteNombre,
+        apellido: infoPedido.clienteApellido,
+    };
+    if (response.payment_type === 'credit_card') {
+        data.metodoPago = 'Tarjeta crédito';
+    } else if (response.payment_type === 'debit_card') {
+        data.metodoPago = 'Tarjeta débito';
+    } else if (response.payment_type === 'prepaid_card') {
+        data.metodoPago = 'Tarjeta prepago';
+    }
+    console.log('response');
+    console.log(response);
+
+    res.render('boleta', { URL: getURL(), data });
+}
+
+//Failure
+const failureGet = async (req = request, res = response) => {
 
     // const { limite = 9, desde = 0 } = req.query;
     // const productos = await Producto.find()
 
-    res.render('boleta', { URL: getURL() });
+    res.json('Falló');
+}
+//Pending
+const pendingGet = async (req = request, res = response) => {
+
+    // const { limite = 9, desde = 0 } = req.query;
+    // const productos = await Producto.find()
+
+    res.json('Pendiente');
 }
 
 const formularioTransbankGet = async (req = request, res = response) => {
@@ -104,4 +117,4 @@ const errorGet = async (req = request, res = response) => {
     }
 }
 
-export { homeGet, compraGet, boletaGet, formularioTransbankGet, errorGet }
+export { homeGet, compraGet, boletaGet, formularioTransbankGet, errorGet, pendingGet, failureGet }

@@ -97,12 +97,12 @@ const eliminarProductoCarrito = (id) => {
 const obtenerProductosCarrito = () => {
     const listadoProductos = document.getElementById("productos");
     const finalizarCompra = document.getElementById("finalizarCompra");
-    const productos = JSON.parse(localStorage.getItem("producto"));
+    const productos = listaProductos;
     listadoProductos.innerHTML = '';
     if (productos.length > 0) {
         productos.forEach(producto => {
             let { categoria, id, imagen, marca, nombreProducto, precio, cantidad } = producto;
-            if(imagen === null || imagen === ''){
+            if (imagen === null || imagen === '') {
                 imagen = '/img/no-hay-imagen.png';
             }
             listadoProductos.innerHTML += `<div class="d-flex py-2 mx-4 align-items-center justify-content-between border-bottom">
@@ -144,7 +144,7 @@ const obtenerProductosCarrito = () => {
                 </div>
             </div>`
         });
-        finalizarCompra.innerHTML = `<button onclick="finalizarCompra()" class="btn btn-secondary btn-lg px-4">Finalizar compra</button>`
+        finalizarCompra.innerHTML = `<a href="/pedidos" class="btn btn-secondary btn-lg px-4">Continuar</a>`
     } else {
         listadoProductos.innerHTML = `<div class="my-5 d-flex row justify-content-center align-items-center">
             <div class="col-1">

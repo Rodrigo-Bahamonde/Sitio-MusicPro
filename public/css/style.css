@@ -53,13 +53,28 @@ li a:active {
 
 /* Buttons */
 .btn-submit {
-    background-color: #33C3F0 !important;
-    color: #FFF!important;
+    background-color: #0077ffc9 !important;
+    color: #FFF !important;
 }
+
 .btn-submit:active {
     background-color: #4190a9 !important;
 }
 
 .btn-submit:focus {
-    box-shadow: none!important;
+    box-shadow: none !important;
+}
+
+
+/* Validacion formulario */
+.error-validation {
+    border-color: red !important;
+}
+
+.error {
+    color: red !important;
+}
+
+.hide {
+    display: none !important;
 }
